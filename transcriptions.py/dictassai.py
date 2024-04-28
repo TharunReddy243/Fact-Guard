@@ -4,7 +4,7 @@ import subprocess
 
 
 yt = YouTube( 
-	str(input("Enter the URL of the video you want to download: \n>> ")))  
+	str(input("Enter the URL of the video you want to run: \n>> ")))  
 video = yt.streams.filter(only_audio=True).first() 
 
 destination = '.'
@@ -32,7 +32,7 @@ for word in transcript.words:
     if word.text.endswith("."):
         dict[sentence.strip()]=(str((start_time)/1000)+":"+str((word.end)/1000))
         sentence = ""
-print(dict)
+#print(dict)
 details="channel_name:"+ str(yt.author)+"\nvideo_title:"+str(yt.title)+"\nvideo_length:"+str(yt.length)+"\npublication_date:"+str(yt.publish_date)+"/n"
 process = subprocess.Popen(['python', 'pipeusertest.py'], stdin=subprocess.PIPE)
 
