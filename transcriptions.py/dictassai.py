@@ -32,7 +32,7 @@ for word in transcript.words:
     if word.text.endswith("."):
         dict[sentence.strip()]=(str((start_time)/1000)+":"+str((word.end)/1000))
         sentence = ""
-#print(dict)
+print(dict)
 details="channel_name:"+ str(yt.author)+"\nvideo_title:"+str(yt.title)+"\nvideo_length:"+str(yt.length)+"\npublication_date:"+str(yt.publish_date)+"/n"
 process = subprocess.Popen(['python', 'pipeusertest.py'], stdin=subprocess.PIPE)
 
@@ -41,5 +41,9 @@ process.communicate((details).encode('utf-8'))
 process = subprocess.Popen(['python', 'pipeusertest.py'], stdin=subprocess.PIPE)
 
 process.communicate(str(dict).encode('utf-8'))
+
+process = subprocess.Popen(['python', 'pipeusertest.py'], stdin=subprocess.PIPE)
+
+process.communicate((transcript.text).encode('utf-8'))
 
 os.remove(new_file)
